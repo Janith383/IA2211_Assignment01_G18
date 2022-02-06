@@ -1,4 +1,8 @@
 package com.company;
 
-public class LongVehicleType {
+public class LongVehicleType extends ParkingAreaType{
+
+    public LongVehicleType(int num) {
+        super(num, "LongVehicle");
+    }
 }
