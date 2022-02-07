@@ -1,7 +1,11 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package com.company;
 
 public class ParkingSlot {
-
     private int id;
     private String driversID;
     private String mobile;
@@ -22,7 +26,7 @@ public class ParkingSlot {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -30,7 +34,7 @@ public class ParkingSlot {
     }
 
     public String getDriversID() {
-        return driversID;
+        return this.driversID;
     }
 
     public void setDriversID(String driversID) {
@@ -38,16 +42,15 @@ public class ParkingSlot {
     }
 
     public boolean isAvailable() {
-        return isAvailable;
+        return this.isAvailable;
     }
 
     public void setAvailable(boolean available) {
-        isAvailable = available;
+        this.isAvailable = available;
     }
 
-
     public String getMobile() {
-        return mobile;
+        return this.mobile;
     }
 
     public void setMobile(String mobile) {
