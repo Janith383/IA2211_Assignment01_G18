@@ -2,17 +2,15 @@ package com.company;
 
 import java.util.Scanner;
 
-
 public class Main {
 
     public static void main(String[] args) {
 
         Faculty artFaculty = new Faculty("Art", 10, 10, 10);
         Faculty managementFaculty = new Faculty("Management", 20, 20, 20);
-        Faculty medicineFaculty = new Faculty("Medicine", 30, 30, 30);
         Faculty technologyFaculty = new Faculty("Technology", 30, 30, 30);
 
-        Faculty[] faculties = {artFaculty, managementFaculty, technologyFaculty,medicineFaculty};
+        Faculty[] faculties = {artFaculty, managementFaculty, technologyFaculty};
 
         boolean isOn = true;
         while (isOn) {
@@ -177,11 +175,65 @@ public class Main {
                     break;
 
                 case 2:
-                    //code
+
+                    System.out.println("Please enter the faculty ID number");
+
+                    String facultyID = scanner.next();
+
+                    for(int i=0; i< faculties.length; i++) {
+                        ParkingSlot slot = null;
+                        for(int x=0; x<faculties[i].getStandard().getSlots().length; x++) {
+                            if (faculties[i].getStandard().getSlots()[x].getDriversID().equalsIgnoreCase(facultyID)) {
+                                slot = faculties[i].getStandard().getSlots()[x];
+                                faculties[i].getStandard().unReserveSlot(slot);
+                                System.out.println("You can exit from the parking slot number " + slot.getId() + ". Have a good day");
+                                break;
+                            }
+                        }
+                        for(int x=0; x<faculties[i].getHandicapped().getSlots().length; x++) {
+                            if (faculties[i].getHandicapped().getSlots()[x].getDriversID().equalsIgnoreCase(facultyID)) {
+                                slot = faculties[i].getHandicapped().getSlots()[x];
+                                faculties[i].getHandicapped().unReserveSlot(slot);
+                                System.out.println("You can exit from the parking slot number " + slot.getId() + ". Have a good day");
+                                break;
+                            }
+                        }
+                        for(int x=0; x<faculties[i].getLongVehicle().getSlots().length; x++) {
+                            if (faculties[i].getLongVehicle().getSlots()[x].getDriversID().equalsIgnoreCase(facultyID)) {
+                                slot = faculties[i].getLongVehicle().getSlots()[x];
+                                faculties[i].getLongVehicle().unReserveSlot(slot);
+                                System.out.println("You can exit from the parking slot number " + slot.getId() + ". Have a good day");
+                                break;
+                            }
+                        }
+                    }
                     break;
 
                 case 3:
-                    //code
+
+                    for(int i=0; i< faculties.length; i++) {
+                        System.out.println("\n" + faculties[i].getName() + " faculty");
+                        System.out.println("\nStandard Parking type: \n");
+                        for(int x=0; x< faculties[i].getStandard().reservedSlots().length; x++) {
+                            System.out.println("Parking slot ID\t" + faculties[i].getStandard().reservedSlots()[x].getId() + "\t");
+                            System.out.println("Drivers Faculty ID\t" + faculties[i].getStandard().reservedSlots()[x].getDriversID() + "\t");
+                            System.out.println("Mobile number\t" + faculties[i].getStandard().reservedSlots()[x].getMobile() + "\t");
+                        }
+
+                        System.out.println("\nHandicapped Parking type: \n");
+                        for(int x=0; x< faculties[i].getHandicapped().reservedSlots().length; x++) {
+                            System.out.println("Parking slot ID\t" + faculties[i].getHandicapped().reservedSlots()[x].getId() + "\t");
+                            System.out.println("Drivers Faculty ID\t" +faculties[i].getHandicapped().reservedSlots()[x].getDriversID() + "\t");
+                            System.out.println("Mobile number\t" + faculties[i].getHandicapped().reservedSlots()[x].getMobile() + "\t");
+                        }
+
+                        System.out.println("\nLong Vehicle Parking type: \n");
+                        for(int x=0; x< faculties[i].getLongVehicle().reservedSlots().length; x++) {
+                            System.out.println("Parking slot ID\t" + faculties[i].getLongVehicle().reservedSlots()[x].getId() + "\t");
+                            System.out.println("Drivers Faculty ID\t" +faculties[i].getLongVehicle().reservedSlots()[x].getDriversID() + "\t");
+                            System.out.println("Mobile number\t" + faculties[i].getLongVehicle().reservedSlots()[x].getMobile() + "\t");
+                        }
+                    }
                     break;
 
                 case 4:
